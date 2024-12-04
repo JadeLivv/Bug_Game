@@ -109,12 +109,20 @@ while running:
 # Update Enemy Position
     enemies.update()
 
+# Clock Setup for Better Framerate
+    clock = pygame.time.Clock()
+
 # Background Setting here
     screen.fill ((65, 153, 204))
 
 # Drawing every sprites
     for entity in All_Sprites:
         screen.blit(entity.surf, entity.rect)
+    
+# Player Collied with Enemy
+    if pygame.sprite.spritecollideany(player, enemies):
+        player.kill()
+        running = False
       
 # Surface created with width & length
     #   surf = pygame.Surface((50, 50))
@@ -135,6 +143,9 @@ while running:
 
 # Right to Left (flip screen)
     pygame.display.flip()
+
+# 30 frames per second by tick
+    clock.tick(30)
 
 # Quit time :D
 pygame.quit()
