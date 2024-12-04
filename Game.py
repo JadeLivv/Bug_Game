@@ -22,7 +22,28 @@ class Player(pygame.sprite.Sprite):
         super(Player, self).__init__()
         self.surf = pygame.Surface((75, 25))
         self.surf.fill((0, 0, 0))
-        self.ect = self.surf.get_rect()
+        self.rect = self.surf.get_rect()
+
+    # Keypresses Move Player
+    def update(self, pressed_keys):
+        if pressed_keys[K_UP]:
+            self.rect.move_ip(0, -5)
+        if pressed_keys[K_DOWN]:
+            self.rect.move_ip(0, 5)
+        if pressed_keys[K_LEFT]:
+            self.rect.move_ip(-5, 0)
+        if pressed_keys[K_RIGHT]:
+            self.rect.move_ip(5, 0)
+    
+    # Keep Player In the screen
+        if self.rect.left < 0:
+            self.rect.left = 0
+        if self.rect.right > Screen_W:
+            self.rect.right = Screen_W
+        if self.rect.top <= 0:
+            self.rect.top = 0
+        if self.rect.bottom >= Screen_H:
+            self.rect.bottom = Screen_H
         
 pygame.init()   
 
@@ -40,6 +61,10 @@ while running:
         elif event.type == QUIT:
             running = False
         
+    # Key currently pressed
+    pressed_keys = pygame.key.get_pressed()
+    # Update Player by keypresses
+    player.update(pressed_keys)
 
     # Background Setting here
     screen.fill ((65, 153, 204))
@@ -58,7 +83,7 @@ while running:
     #    (Screen_W-surf.get_width())/2,
     #    (Screen_H-surf.get_height())/2
     #)
-    screen.blit(player.surf, (Screen_W/2, Screen_H/2))
+    screen.blit(player.surf, player.rect)
 
     # Right to Left (flip screen)
     pygame.display.flip()
