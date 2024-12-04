@@ -1,7 +1,7 @@
 # Bug_Game
 
 ## Demo
-Demo Video: <URL>
+Demo Video: <https://youtu.be/7RPF5LjUHz0>
 
 ## GitHub Repository
 GitHub Repo: https://github.com/JadeLivv/Bug_Game.git
