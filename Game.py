@@ -3,6 +3,7 @@ import random
 
 # pygame.locals imports for key coordinates
 from pygame.locals import(
+    RLEACCEL,
     K_UP,
     K_DOWN,
     K_LEFT,
@@ -17,8 +18,8 @@ from pygame.locals import(
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super(Player, self).__init__()
-        self.surf = pygame.Surface((75, 25))
-        self.surf.fill((0, 0, 0))
+        self.surf = pygame.image.load("Bug1.png").convert()
+        self.surf.set_colorkey((255, 255, 255), RLEACCEL)
         self.rect = self.surf.get_rect()
 
     # Keypresses Move Player
