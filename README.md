@@ -7,7 +7,7 @@ Demo Video: <URL>
 GitHub Repo: https://github.com/JadeLivv/Bug_Game.git
 
 ## Description
-A 2D game about a bug walking around the dangerous world, avoiding obstacles, and see what time you got to complete it.
+A 2D game about a bug flying around the dangerous world, avoiding obstacles, and see what time you got to complete it.
 
 ## Credit
 https://realpython.com/pygame-a-primer/
